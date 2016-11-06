@@ -9,9 +9,9 @@ var myOptions = {
 };
 
 var station_list = [
-    {station_name: "Iapm", lat:31.215907, lng: 121.458294, location: new google.maps.LatLng(31.215907, 121.458294)},
-    {station_name: "SWFC", lat:31.2346983, lng: 121.50755879999997, location: new google.maps.LatLng(31.2346983, 121.50755879999997)},
-    {station_name: "Jiali", lat:31.224423, lng: 121.450200, location: new google.maps.LatLng(31.224423, 121.450200)},
+    {station_name: "Iapm", message: "I love you at Iapm!", lat:31.215907, lng: 121.458294, location: new google.maps.LatLng(31.215907, 121.458294)},
+    {station_name: "SWFC", message: "I love you at SWFC!",lat:31.2346983, lng: 121.50755879999997, location: new google.maps.LatLng(31.2346983, 121.50755879999997)},
+    {station_name: "Jiali", message: "I love you at Jiali!", lat:31.224423, lng: 121.450200, location: new google.maps.LatLng(31.224423, 121.450200)},
 ]
 
 
@@ -64,7 +64,7 @@ function renderMap()
 
     marker_me = new google.maps.Marker({
         position: me,
-        title: "Here I Am!",
+        title: "Here you are!",
         map: map,
         icon: me_photo,
         animation: google.maps.Animation.BOUNCE
@@ -78,9 +78,12 @@ function renderMap()
     marker_me.setMap(map);
 
     var infowindow_stations = {};
+
     for (let i = 0; i < 3; i++){
-        var contentStrings = '<p>station name: </p>'
-        + station_list[i].station_name;
+        var contentStrings = '<p>General Location: </p>'
+        + station_list[i].station_name
+        + '<p>where to pinpoint the exact location: </p>'
+        + station_list[i].message;
 
         infowindow_stations[i] = new google.maps.InfoWindow({
             content: contentStrings
@@ -103,7 +106,6 @@ function renderMap()
             }
         });
     }
-
 }
 
 function update_nearest_station(){
@@ -135,11 +137,8 @@ function show_nearest_station(){
     }
     var nearest_path = new google.maps.Polyline({
         path: Coordinates_me_to_closest_station,
-        //geodesic: true,
         strokeColor: 'blue',
         strokeOpacity: 0,
-        //strokeOpacity: 1.0,
-        //strokeWeight: 2,
         icons: [{
             icon: lineSymbol,
             offset: '0',
