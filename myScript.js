@@ -5,18 +5,128 @@ var me = new google.maps.LatLng(myLat, myLng);
 var myOptions = {
     zoom: 13,
     center: me,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
+    // mapTypeId: google.maps.MapTypeId.ROADMAP
+   styles: [
+      // {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
+      {elementType: 'geometry', stylers: [{color: '#F1BDD6'}]},
+      // {elementType: 'labels.text.stroke', stylers: [{color: '#242f3e'}]},
+      {elementType: 'labels.text.stroke', stylers: [{color: '#FBF5F5'}]},
+      // {elementType: 'labels.text.fill', stylers: [{color: '#746855'}]},
+      {elementType: 'labels.text.fill', stylers: [{color: 'F70606'}]},
+
+      {
+        featureType: 'administrative.locality',
+        elementType: 'labels.text.fill',
+        // stylers: [{color: '#d59563'}]
+        stylers: [{color: '#F04545'}]
+
+      },
+      {
+        featureType: 'poi',
+        elementType: 'labels.text.fill',
+        // stylers: [{color: '#d59563'}]
+        stylers: [{color: '#F72879'}]
+
+      },
+      {
+        featureType: 'poi.park',
+        elementType: 'geometry',
+        // stylers: [{color: '#263c3f'}]
+        stylers: [{color: '#F8D1E0'}]
+
+      },
+      {
+        featureType: 'poi.park',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#6b9a76'}]
+      },
+      {
+        featureType: 'road',
+        elementType: 'geometry',
+        // stylers: [{color: '#38414e'}]
+        stylers: [{color: '#E0075C'}]
+
+
+      },
+      {
+        featureType: 'road',
+        elementType: 'geometry.stroke',
+        // stylers: [{color: '#212a37'}]
+        stylers: [{color: '#F93309'}]
+
+      },
+      {
+        featureType: 'road',
+        elementType: 'labels.text.fill',
+        // stylers: [{color: '#9ca5b3'}]
+        stylers: [{color: '#F90909'}]
+
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry',
+        // stylers: [{color: '#746855'}]
+        stylers: [{color: '#F72879'}]
+
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'geometry.stroke',
+        // stylers: [{color: '#1f2835'}]
+        stylers: [{color: '#FA00A3'}]
+      },
+      {
+        featureType: 'road.highway',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#f3d19c'}]
+      },
+      {
+        featureType: 'transit',
+        elementType: 'geometry',
+        // stylers: [{color: '#2f3948'}]
+        stylers: [{color: '#FA0063'}]
+
+      },
+      {
+        featureType: 'transit.station',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#d59563'}]
+      },
+      {
+        featureType: 'water',
+        elementType: 'geometry',
+        // stylers: [{color: '#17263c'}]
+        stylers: [{color: '#FFFCFB'}]
+
+      },
+      {
+        featureType: 'water',
+        elementType: 'labels.text.fill',
+        stylers: [{color: '#515c6d'}]
+      },
+      {
+        featureType: 'water',
+        elementType: 'labels.text.stroke',
+        stylers: [{color: '#17263c'}]
+      }
+    ]
+
 };
 
 var station_list = [
-    {station_name: "Iapm", message: "I love you at Iapm!", lat:31.215907, lng: 121.458294, location: new google.maps.LatLng(31.215907, 121.458294)},
-    {station_name: "SWFC", message: "I love you at SWFC!",lat:31.2346983, lng: 121.50755879999997, location: new google.maps.LatLng(31.2346983, 121.50755879999997)},
-    {station_name: "Jiali", message: "I love you at Jiali!", lat:31.224423, lng: 121.450200, location: new google.maps.LatLng(31.224423, 121.450200)},
+    {station_name: "Iapm", message: "I want you to go to the one place in", message2: "Iapm that we always ended up visiting", 
+    message3: "even if we didn't need to buy anything", lat:31.215907, lng: 121.458294, location: new google.maps.LatLng(31.215907, 121.458294)},
+    
+    {station_name: "SWFC", message: "I love you at SWFC!", message2: "",
+    message3:"", lat:31.2346983, lng: 121.50755879999997, location: new google.maps.LatLng(31.2346983, 121.50755879999997)},
+    
+    {station_name: "Jiali", message: "I love you at Jiali!", message2: "", 
+    message3:"", lat:31.224423, lng: 121.450200, location: new google.maps.LatLng(31.224423, 121.450200)},
 ]
 
 
 var map;
-var present_icon = "present.png";
+var present_icon = "present2.png";
 var me_photo = "me.png";
 var marker_me;
 var infowindow = new google.maps.InfoWindow();
@@ -82,8 +192,12 @@ function renderMap()
     for (let i = 0; i < 3; i++){
         var contentStrings = '<p>General Location: </p>'
         + station_list[i].station_name
-        + '<p>where to pinpoint the exact location: </p>'
-        + station_list[i].message;
+        + '<p>Exact Location: </p>'
+        + station_list[i].message
+        + '<p></p>'
+        + station_list[i].message2
+        + '<p></p>'
+        + station_list[i].message3;
 
         infowindow_stations[i] = new google.maps.InfoWindow({
             content: contentStrings
