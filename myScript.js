@@ -1,3 +1,8 @@
+// original URL: https://maps.googleapis.com/maps/api/js?
+// Chinese URL: http://ditu.google.cn/maps/api/js?
+
+
+
 var myLat = 0;
 var myLng = 0;
 var request = new XMLHttpRequest();
@@ -67,7 +72,6 @@ var myOptions = {
         elementType: 'geometry',
         // stylers: [{color: '#746855'}]
         stylers: [{color: '#F72879'}]
-
       },
       {
         featureType: 'road.highway',
@@ -113,15 +117,19 @@ var myOptions = {
 
 };
 
+
+// Put one of these locations into a Tyler Series solution
+// Put the specific location in Jiali into a word scrambler
+// that can be reconstructed by a Tyler Series
 var station_list = [
     {station_name: "Iapm", message: "I want you to go to the one place in", message2: "Iapm that we always ended up visiting", 
-    message3: "even if we didn't need to buy anything", lat:31.215907, lng: 121.458294, location: new google.maps.LatLng(31.215907, 121.458294)},
+    message3: "even if we didn't need to buy anything", message4:"", lat:31.215907, lng: 121.458294, location: new google.maps.LatLng(31.215907, 121.458294)},
     
-    {station_name: "SWFC", message: "I love you at SWFC!", message2: "",
-    message3:"", lat:31.2346983, lng: 121.50755879999997, location: new google.maps.LatLng(31.2346983, 121.50755879999997)},
+    {station_name: "SWFC", message: "Visit the SWFC. I hope you know where to", message2: "go because there is only one floor",
+    message3:"in this abnormally tall building that is of importance to us", message4:"", lat:31.2346983, lng: 121.50755879999997, location: new google.maps.LatLng(31.2346983, 121.50755879999997)},
     
     {station_name: "Jiali", message: "I love you at Jiali!", message2: "", 
-    message3:"", lat:31.224423, lng: 121.450200, location: new google.maps.LatLng(31.224423, 121.450200)},
+    message3:"", message4:"", lat:31.224423, lng: 121.450200, location: new google.maps.LatLng(31.224423, 121.450200)},
 ]
 
 
@@ -197,7 +205,9 @@ function renderMap()
         + '<p></p>'
         + station_list[i].message2
         + '<p></p>'
-        + station_list[i].message3;
+        + station_list[i].message3
+        + '<p></p>'
+        + station_list[i].message4;
 
         infowindow_stations[i] = new google.maps.InfoWindow({
             content: contentStrings
