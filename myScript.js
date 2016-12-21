@@ -195,7 +195,7 @@ function renderMap()
 
     var infowindow_stations = {};
 
-    for (let i = 0; i < 1; i++){
+    for (let i = 0; i < 2; i++){
         var contentStrings = '<p>General Location: </p>'
         + station_list[i].station_name
         + '<p>Exact Location: </p>'
@@ -221,7 +221,7 @@ function renderMap()
         });
         google.maps.event.addListener(Marker, 'click', function() {
             infowindow_stations[i].open(map, this);
-            for (j = 0; j < 1; j++){
+            for (j = 0; j < 2; j++){
                 if (j!=i){
                     infowindow_stations[j].close(map, this);
                 }
@@ -280,7 +280,7 @@ function get_cloest_station(station_list){
 
     var smallest_distance = get_distance(lat_station, lng_station, myLat, myLng);
 
-    for (i = 0; i < 1; i++){
+    for (i = 0; i < 2; i++){
         lat_station = station_list[i].lat;
         lng_station = station_list[i].lng;
         var potential_smallest_distance = get_distance(lat_station, lng_station, myLat, myLng);
