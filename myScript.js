@@ -1,8 +1,6 @@
 // original URL: https://maps.googleapis.com/maps/api/js?
 // Chinese URL: http://ditu.google.cn/maps/api/js?
 
-
-
 var myLat = 0;
 var myLng = 0;
 var request = new XMLHttpRequest();
@@ -125,11 +123,11 @@ var station_list = [
     {station_name: "Iapm", message: "I want you to go to the one place in", message2: "Iapm that we always ended up visiting", 
     message3: "even if we didn't need to buy anything.", message4:"", lat:31.215907, lng: 121.458294, location: new google.maps.LatLng(31.215907, 121.458294)},
     
-    {station_name: "SWFC", message: "Visit the SWFC. I hope you know where", message2: "to go since there is only one floor",
-    message3:"in this abnormally tall building that", message4:"is of importance to us.", lat:31.2346983, lng: 121.50755879999997, location: new google.maps.LatLng(31.2346983, 121.50755879999997)},
+    // {station_name: "SWFC", message: "Visit the SWFC. I hope you know where", message2: "to go since there is only one floor",
+    // message3:"in this abnormally tall building that", message4:"is of importance to us.", lat:31.2346983, lng: 121.50755879999997, location: new google.maps.LatLng(31.2346983, 121.50755879999997)},
     
-    {station_name: "Jiali", message: "I love you at Jiali!", message2: "", 
-    message3:"", message4:"", lat:31.224423, lng: 121.450200, location: new google.maps.LatLng(31.224423, 121.450200)},
+    // {station_name: "Jiali", message: "I love you at Jiali!", message2: "", 
+    // message3:"", message4:"", lat:31.224423, lng: 121.450200, location: new google.maps.LatLng(31.224423, 121.450200)},
 ]
 
 
@@ -193,11 +191,11 @@ function renderMap()
         infowindow.open(map, marker_me);
     });
 
-    marker_me.setMap(map);
+    // marker_me.setMap(map);
 
     var infowindow_stations = {};
 
-    for (let i = 0; i < 3; i++){
+    for (let i = 0; i < 1; i++){
         var contentStrings = '<p>General Location: </p>'
         + station_list[i].station_name
         + '<p>Exact Location: </p>'
@@ -223,7 +221,7 @@ function renderMap()
         });
         google.maps.event.addListener(Marker, 'click', function() {
             infowindow_stations[i].open(map, this);
-            for (j = 0; j < 3; j++){
+            for (j = 0; j < 1; j++){
                 if (j!=i){
                     infowindow_stations[j].close(map, this);
                 }
@@ -282,7 +280,7 @@ function get_cloest_station(station_list){
 
     var smallest_distance = get_distance(lat_station, lng_station, myLat, myLng);
 
-    for (i = 0; i < 3; i++){
+    for (i = 0; i < 1; i++){
         lat_station = station_list[i].lat;
         lng_station = station_list[i].lng;
         var potential_smallest_distance = get_distance(lat_station, lng_station, myLat, myLng);
