@@ -115,7 +115,7 @@ var myOptions = {
 
 };
 
-
+//
 // Put one of these locations into a Tyler Series solution
 // Put the specific location in Jiali into a word scrambler
 // that can be reconstructed by a Tyler Series
