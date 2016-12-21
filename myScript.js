@@ -123,8 +123,8 @@ var station_list = [
     {station_name: "Iapm", message: "I want you to go to the one place in", message2: "Iapm that we always ended up visiting", 
     message3: "even if we didn't need to buy anything.", message4:"", lat:31.215907, lng: 121.458294, location: new google.maps.LatLng(31.215907, 121.458294)},
     
-    // {station_name: "SWFC", message: "Visit the SWFC. I hope you know where", message2: "to go since there is only one floor",
-    // message3:"in this abnormally tall building that", message4:"is of importance to us.", lat:31.2346983, lng: 121.50755879999997, location: new google.maps.LatLng(31.2346983, 121.50755879999997)},
+    {station_name: "SWFC", message: "Visit the SWFC. I hope you know where", message2: "to go since there is only one floor",
+    message3:"in this abnormally tall building that", message4:"is of importance to us.", lat:31.2346983, lng: 121.50755879999997, location: new google.maps.LatLng(31.2346983, 121.50755879999997)},
     
     // {station_name: "Jiali", message: "I love you at Jiali!", message2: "", 
     // message3:"", message4:"", lat:31.224423, lng: 121.450200, location: new google.maps.LatLng(31.224423, 121.450200)},
