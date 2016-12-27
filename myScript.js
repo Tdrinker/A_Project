@@ -119,12 +119,9 @@ var myOptions = {
 // Put one of these locations into a Tyler Series solution
 // Put the specific location in Jiali into a word scrambler
 // that can be reconstructed by a Tyler Series
-var station_list = [ 
-    {station_name: "嘉里中心", message: "Please go to 嘉里中心北区1楼10A. ", message2: "Tell the people there your name and you", 
-    message3:"you can go to the next station.", message4:"", lat:31.224423, lng: 121.450200, location: new google.maps.LatLng(31.224423, 121.450200)},
-
-    {station_name: "Our Airbnb", message: "Please come to our lovely Airbnb at ", message2: "太原路181号. Pretty presents and I are", 
-    message3:"waiting for you. Come come.", message4:"", lat:31.211531, lng: 121.461786, location: new google.maps.LatLng(31.211531, 121.461786)}
+var station_list = [
+    {station_name: "嘉里中心", message: "not shown yet", message2: "Welcome to the game for presents! When you get there,", 
+    message3:"message me and more instructions will", message4:"follow. Happy Hunting!!!", lat:31.224423, lng: 121.450200, location: new google.maps.LatLng(31.224423, 121.450200)}
 ]
 
 
@@ -192,7 +189,7 @@ function renderMap()
 
     var infowindow_stations = {};
 
-    for (let i = 0; i < 2; i++){
+    for (let i = 0; i < 1; i++){
         var contentStrings = '<p>General Location: </p>'
         + station_list[i].station_name
         + '<p>Exact Location: </p>'
@@ -218,7 +215,7 @@ function renderMap()
         });
         google.maps.event.addListener(Marker, 'click', function() {
             infowindow_stations[i].open(map, this);
-            for (j = 0; j < 2; j++){
+            for (j = 0; j < 1; j++){
                 if (j!=i){
                     infowindow_stations[j].close(map, this);
                 }
@@ -277,7 +274,7 @@ function get_cloest_station(station_list){
 
     var smallest_distance = get_distance(lat_station, lng_station, myLat, myLng);
 
-    for (i = 0; i < 2; i++){
+    for (i = 0; i < 1; i++){
         lat_station = station_list[i].lat;
         lng_station = station_list[i].lng;
         var potential_smallest_distance = get_distance(lat_station, lng_station, myLat, myLng);
@@ -311,6 +308,8 @@ function get_distance(lat1, lon1, lat2, lon2){
 
     return d;
 }
+
+
 
 
 
